@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Good food, right between classes. Discover fresh campus favorites from Campus Eats."
+    />
+    <meta name="theme-color" content="#fffaf0" />
+    <title>Campus Eats — Good food, between classes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: "var(--color-primary)",
+              orange: "var(--color-accent)",
+              cream: "var(--color-background)",
+              surface: "var(--color-surface)",
+              ink: "var(--color-text)",
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              soft: "0 16px 48px rgba(39, 67, 48, 0.09)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        /* Named Campus Eats tokens observed in the Figma library. */
+        --color-primary: #216448;
+        --color-accent: #e69b45;
+        --color-background: #fffaf0;
+        --color-surface: #ffffff;
+        --color-text: #242a25;
+        --color-muted: #72786f;
+        --color-border: #e8e8dc;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--color-background);
+        color: var(--color-text);
+      }
+
+      a {
+        transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      input:focus-visible,
+      textarea:focus-visible {
+        outline: 3px solid var(--color-accent);
+        outline-offset: 3px;
+      }
+
+      button {
+        transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+      }
+
+      button:hover:not(:disabled) {
+        filter: brightness(0.94);
+      }
+
+      input:hover,
+      textarea:hover {
+        border-color: var(--color-primary);
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased">
+    <header class="sticky top-0 z-20 border-b border-[#e8e8dc] bg-cream">
+      <nav
+        aria-label="Main navigation"
+        class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-5 py-4 sm:px-8"
+      >
+        <a href="#" class="flex shrink-0 items-center gap-2.5" aria-label="Campus Eats home">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-forest text-white" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5">
+              <path d="M5 3v7m4-7v7M7 3v18m10-18c-2.2 2.3-3.1 5.2-3.1 8.2H18V3Zm0 8.2V21" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </span>
+          <span class="text-lg font-extrabold tracking-tight text-forest">Campus Eats</span>
+        </a>
+
+        <button
+          id="menu-toggle"
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-[#dfe5dc] text-ink hover:bg-[#e8f0e9] md:hidden"
+          aria-label="Toggle navigation"
+          aria-expanded="false"
+          aria-controls="primary-links"
+        >
+          <svg viewBox="0 0 24 24" fill="none" class="h-5 w-5" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+        </button>
+
+        <div
+          id="primary-links"
+          class="hidden w-full flex-col gap-1 border-t border-[#e8e8dc] bg-cream pt-3 md:flex md:w-auto md:flex-row md:items-center md:gap-8 md:border-0 md:bg-transparent md:pt-0"
+        >
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-ink hover:bg-[#e8f0e9] hover:text-forest" href="#menu">Menu</a>
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-ink hover:bg-[#e8f0e9] hover:text-forest" href="#about">About</a>
+          <a class="rounded-lg px-3 py-2 text-sm font-medium text-ink hover:bg-[#e8f0e9] hover:text-forest" href="#contact">Contact</a>
+          <a
+            href="#menu"
+            class="mt-2 inline-flex items-center justify-center rounded-lg bg-forest px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#174e38] md:mt-0"
+          >
+            Order now
+            <span class="ml-2" aria-hidden="true">→</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section aria-labelledby="hero-title" class="mx-auto grid max-w-6xl items-center gap-10 px-5 pb-16 pt-12 sm:px-8 sm:pb-20 sm:pt-16 lg:grid-cols-2 lg:gap-14 lg:pt-20">
+        <div class="max-w-xl">
+          <p class="mb-4 inline-flex items-center gap-2 rounded-full bg-[#e8f0e9] px-3.5 py-1.5 text-xs font-bold uppercase tracking-[0.1em] text-forest">
+            <span class="h-2 w-2 rounded-full bg-orange"></span>
+            Pickup · Near campus
+          </p>
+          <h1 id="hero-title" class="max-w-lg text-4xl font-extrabold leading-[1.08] tracking-[-0.045em] text-ink sm:text-5xl lg:text-[3.6rem]">
+            <span class="text-forest">Hungry on campus?</span>
+            Good food, right between classes.
+          </h1>
+          <p class="mt-5 max-w-md text-base leading-7 text-[#697168] sm:text-lg">
+            Your campus favorites, freshly made. Order a proper lunch and pick it up before your next class.
+          </p>
+          <div class="mt-7 flex flex-wrap items-center gap-3">
+            <a href="#menu" class="inline-flex items-center justify-center rounded-lg bg-forest px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#174e38]">
+              Order now
+            </a>
+            <a href="#menu" class="inline-flex items-center justify-center rounded-lg border border-[#ccd7cc] bg-surface px-5 py-3 text-sm font-semibold text-forest transition hover:border-forest hover:bg-[#f1f5ee]">
+              View menu
+            </a>
+          </div>
+          <div class="mt-5 flex flex-wrap gap-x-3 gap-y-1 text-xs font-semibold text-forest">
+            <span>Ready in 15–20 min</span><span aria-hidden="true">·</span>
+            <span>Free pickup</span><span aria-hidden="true">·</span>
+            <span>Cash at pickup</span>
+          </div>
+        </div>
+
+        <figure class="mx-auto grid w-full max-w-xl gap-4">
+          <img
+            src="C:\Users\aatka\Downloads\Biryani.jpg"
+            alt="A bowl of chicken biryani served with rice and curry"
+            class="aspect-[1.12/1] w-full rounded-2xl object-cover shadow-soft sm:aspect-[1.2/1]"
+          />
+          <figcaption class="grid gap-4 rounded-xl bg-surface p-4 shadow-soft sm:grid-cols-[1fr_auto] sm:items-center sm:p-5">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wider text-[#778074]">Campus kitchen favorite</p>
+              <h2 class="mt-1 text-base font-bold text-ink sm:text-lg">Chicken biryani</h2>
+              <p class="mt-1 text-sm text-[#697168]">The Campus Kitchen · Student favorite</p>
+            </div>
+            <p class="rounded-lg bg-[#edf4eb] px-3 py-2 text-sm font-bold text-forest">PKR 800</p>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="menu" aria-labelledby="menu-title" class="bg-[#f5f4e9]">
+        <div class="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <div class="mb-8 flex flex-wrap items-end justify-between gap-4 sm:mb-10">
+            <div>
+              <p class="text-sm font-bold uppercase tracking-[0.13em] text-forest">Fresh from the campus kitchen</p>
+              <h2 id="menu-title" class="mt-2 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">Popular items</h2>
+              <p class="mt-2 text-sm text-[#737b72]">Big flavors for your well-earned lunch break.</p>
+            </div>
+            <p class="pb-1 text-sm font-semibold text-forest">Made fresh. Served with care.</p>
+          </div>
+
+          <div class="grid min-w-0 grid-cols-1 gap-5 md:grid-cols-2 min-[1440px]:grid-cols-3">
+            <article class="group min-w-0 overflow-hidden rounded-xl border border-[#ecebe1] bg-surface shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <img src="C:\Users\aatka\Downloads\Biryani.jpg" alt="Chicken biryani with fragrant rice and spices" class="aspect-[1.65/1] w-full object-cover" loading="lazy" />
+              <div class="grid gap-3 p-4">
+                <div><h3 class="font-bold text-ink">Chicken biryani</h3><p class="mt-1 text-sm text-[#737b72]">Fragrant rice, tender chicken &amp; fresh mint.</p></div>
+                <div class="flex items-center justify-between gap-3"><span class="text-sm font-bold text-forest">PKR 800</span><button type="button" class="add-item inline-flex items-center gap-1 rounded-md bg-[#edf4eb] px-3 py-2 text-xs font-semibold text-forest hover:bg-[#dcebdd]" aria-pressed="false" aria-label="Add Chicken biryani">+ Add</button></div>
+              </div>
+            </article>
+            <article class="group min-w-0 overflow-hidden rounded-xl border border-[#ecebe1] bg-surface shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <img src="C:\Users\aatka\Downloads\Street-Style Chicken Karahi – A Taste of Pakistani Dhaba Food.jpg" alt="Chicken karahi cooked with tomatoes, peppers, and spices" class="aspect-[1.65/1] w-full object-cover" loading="lazy" />
+              <div class="grid gap-3 p-4">
+                <div><h3 class="font-bold text-ink">Chicken karahi</h3><p class="mt-1 text-sm text-[#737b72]">Wok-tossed chicken in ginger-tomato masala.</p></div>
+                <div class="flex items-center justify-between gap-3"><span class="text-sm font-bold text-forest">PKR 1000</span><button type="button" class="add-item inline-flex items-center gap-1 rounded-md bg-[#edf4eb] px-3 py-2 text-xs font-semibold text-forest hover:bg-[#dcebdd]" aria-pressed="false" aria-label="Add Chicken karahi">+ Add</button></div>
+              </div>
+            </article>
+            <article class="group min-w-0 overflow-hidden rounded-xl border border-[#ecebe1] bg-surface shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <img src="C:\Users\aatka\Downloads\download (4).jpg" alt="Cool bowl of mint raita garnished with fresh herbs" class="aspect-[1.65/1] w-full object-cover" loading="lazy" />
+              <div class="grid gap-3 p-4">
+                <div><h3 class="font-bold text-ink">Mint raita</h3><p class="mt-1 text-sm text-[#737b72]">Cool and creamy yogurt with a refreshing mint finish.</p></div>
+                <div class="flex items-center justify-between gap-3"><span class="text-sm font-bold text-forest">PKR 80</span><button type="button" class="add-item inline-flex items-center gap-1 rounded-md bg-[#edf4eb] px-3 py-2 text-xs font-semibold text-forest hover:bg-[#dcebdd]" aria-pressed="false" aria-label="Add Mint raita">+ Add</button></div>
+              </div>
+            </article>
+            <article class="group min-w-0 overflow-hidden rounded-xl border border-[#ecebe1] bg-surface shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <img src="C:\Users\aatka\Downloads\Biryani.jpg" alt="Chicken biryani lunch combo with sides" class="aspect-[1.65/1] w-full object-cover" loading="lazy" />
+              <div class="grid gap-3 p-4">
+                <div><h3 class="font-bold text-ink">Biryani lunch combo</h3><p class="mt-1 text-sm text-[#737b72]">Your favorite chicken biryani with mint raita.</p></div>
+                <div class="flex items-center justify-between gap-3"><span class="text-sm font-bold text-forest">PKR 880</span><button type="button" class="add-item inline-flex items-center gap-1 rounded-md bg-[#edf4eb] px-3 py-2 text-xs font-semibold text-forest hover:bg-[#dcebdd]" aria-pressed="false" aria-label="Add Biryani lunch combo">+ Add</button></div>
+              </div>
+            </article>
+            <article class="group min-w-0 overflow-hidden rounded-xl border border-[#ecebe1] bg-surface shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <img src="C:\Users\aatka\Downloads\Desi Chicken Karahi with Naan _ Easy Lunch Recipe.jpg" alt="Karahi lunch bowl served with chicken and naan" class="aspect-[1.65/1] w-full object-cover" loading="lazy" />
+              <div class="grid gap-3 p-4">
+                <div><h3 class="font-bold text-ink">Karahi lunch bowl</h3><p class="mt-1 text-sm text-[#737b72]">A lunch-sized serving of rich chicken karahi.</p></div>
+                <div class="flex items-center justify-between gap-3"><span class="text-sm font-bold text-forest">PKR 600</span><button type="button" class="add-item inline-flex items-center gap-1 rounded-md bg-[#edf4eb] px-3 py-2 text-xs font-semibold text-forest hover:bg-[#dcebdd]" aria-pressed="false" aria-label="Add Karahi lunch bowl">+ Add</button></div>
+              </div>
+            </article>
+            <article class="group min-w-0 overflow-hidden rounded-xl border border-[#ecebe1] bg-surface shadow-sm transition hover:-translate-y-1 hover:shadow-soft">
+              <img src="C:\Users\aatka\Downloads\download (4).jpg" alt="Cucumber raita with cool yogurt and fresh cucumber" class="aspect-[1.65/1] w-full object-cover" loading="lazy" />
+              <div class="grid gap-3 p-4">
+                <div><h3 class="font-bold text-ink">Cucumber raita</h3><p class="mt-1 text-sm text-[#737b72]">Creamy yogurt, crisp cucumber &amp; garden spices.</p></div>
+                <div class="flex items-center justify-between gap-3"><span class="text-sm font-bold text-forest">PKR 80</span><button type="button" class="add-item inline-flex items-center gap-1 rounded-md bg-[#edf4eb] px-3 py-2 text-xs font-semibold text-forest hover:bg-[#dcebdd]" aria-pressed="false" aria-label="Add Cucumber raita">+ Add</button></div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" aria-labelledby="about-title" class="mx-auto max-w-6xl px-5 py-12 sm:px-8 sm:py-16">
+        <div class="grid gap-8 rounded-2xl bg-surface p-6 shadow-soft sm:p-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-12">
+          <div>
+            <p class="text-xs font-bold uppercase tracking-[0.13em] text-forest">Little food love</p>
+            <h2 id="about-title" class="mt-2 max-w-md text-3xl font-extrabold leading-tight tracking-tight text-ink">A question?<br />We’re all ears.</h2>
+            <p class="mt-4 max-w-lg text-sm leading-6 text-[#697168]">Need a hand with your order, have a meal suggestion, or just want to say hello? Drop us a message.</p>
+            <div class="mt-6">
+              <h3 class="text-sm font-bold text-forest">Find us on campus</h3>
+              <p class="mt-1 text-xs leading-5 text-[#737b72]">The Campus Kitchen counter<br />PCK 107 · Near Campus, Lahore</p>
+            </div>
+          </div>
+
+          <form id="contact" class="grid content-start gap-4 sm:grid-cols-2">
+            <div class="grid gap-1.5">
+              <label for="contact-name" class="text-sm font-semibold text-ink">Name</label>
+              <input id="contact-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required class="min-w-0 rounded-lg border border-[#e1e4dc] bg-white px-3 py-2.5 text-sm text-ink placeholder:text-[#92988f] hover:border-forest focus:border-forest" />
+            </div>
+            <div class="grid gap-1.5">
+              <label for="contact-email" class="text-sm font-semibold text-ink">Email</label>
+              <input id="contact-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required class="min-w-0 rounded-lg border border-[#e1e4dc] bg-white px-3 py-2.5 text-sm text-ink placeholder:text-[#92988f] hover:border-forest focus:border-forest" />
+            </div>
+            <div class="grid gap-1.5 sm:col-span-2">
+              <label for="contact-message" class="text-sm font-semibold text-ink">Message</label>
+              <textarea id="contact-message" name="message" rows="3" placeholder="How can we help?" required class="min-w-0 resize-y rounded-lg border border-[#e1e4dc] bg-white px-3 py-2.5 text-sm text-ink placeholder:text-[#92988f] hover:border-forest focus:border-forest"></textarea>
+            </div>
+            <div class="flex flex-wrap items-center gap-4 sm:col-span-2">
+              <button type="submit" class="rounded-lg bg-forest px-5 py-3 text-sm font-semibold text-white hover:bg-[#174e38]">Send message</button>
+              <p id="form-status" class="text-sm text-[#697168]" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-forest text-white">
+      <div class="mx-auto flex max-w-6xl flex-col gap-5 px-5 py-6 sm:px-8 md:flex-row md:items-center md:justify-between">
+        <a href="#" class="text-lg font-extrabold tracking-tight">Campus Eats</a>
+        <p class="text-sm text-white/75">Good food, right between classes.</p>
+        <nav aria-label="Footer navigation" class="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/85">
+          <a class="transition hover:text-white" href="#menu">Menu</a>
+          <a class="transition hover:text-white" href="#about">About</a>
+          <a class="transition hover:text-white" href="#contact">Contact</a>
+        </nav>
+        <p class="text-xs text-white/65">© <span id="year"></span> Campus Eats. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.querySelector("#menu-toggle");
+      const primaryLinks = document.querySelector("#primary-links");
+
+      menuToggle.addEventListener("click", () => {
+        const isExpanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!isExpanded));
+        primaryLinks.classList.toggle("hidden", isExpanded);
+        primaryLinks.classList.toggle("flex", !isExpanded);
+      });
+
+      document.querySelector("#year").textContent = new Date().getFullYear();
+
+      document.querySelectorAll(".add-item").forEach((button) => {
+        button.addEventListener("click", () => {
+          const isAdded = button.getAttribute("aria-pressed") === "true";
+          button.setAttribute("aria-pressed", String(!isAdded));
+          button.textContent = isAdded ? "+ Add" : "Added";
+          button.classList.toggle("bg-[#dcebdd]", !isAdded);
+          button.setAttribute(
+            "aria-label",
+            `${isAdded ? "Add" : "Remove"} ${button.getAttribute("aria-label").replace(/^(Add|Remove) /, "")}`,
+          );
+        });
+      });
+
+      document.querySelector("#contact").addEventListener("submit", (event) => {
+        event.preventDefault();
+        document.querySelector("#form-status").textContent =
+          "Thanks! This demo form is not connected yet. Email hello@campuseats.example instead.";
+      });
+    </script>
+  </body>
+</html>
